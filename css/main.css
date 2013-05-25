@@ -2,25 +2,72 @@ html {
 	min-height: 100%;
 }
 body {
+	font-family: sans-serif;
 	margin: 0 auto;
 }
-#header {
+#nav-header {
 	cursor:default;
 	text-align: center;
 	font-family: DejaVu Sans, sans-serif;
 	background-color: #eaeaea;
 	opacity: 0.6;
-	padding: 0.85%;
+	padding: 1em;
 }
-#nav {
+nav {
 	margin: 0;
 	padding: 0;
+}
+.nav-button {
+	color: #000;
+	text-decoration: none;
 }
 .nav-button:hover {
 	cursor: pointer;
 	text-decoration: underline;
 }
-#nav>li {
+nav>li {
 	display: inline;
 	padding: 0.75em;
+}
+#main {
+	width: 40%;
+	float: left;
+	margin-left: 25%;
+}
+#recently-played {
+	width: 20%;
+	float: left;
+	margin: 1%;
+}
+@media all and (max-width: 960px) {
+	#main {
+		margin-left: 10%;
+	}
+	#recently-played {
+		display: none;
+	}
+}
+#recently-played>ul {
+	list-style-position: outside;
+	padding: 0;
+
+}
+.lfm-track {
+	font-family: Arial,​ sans-serif;
+	font-size: 0.75em;
+	text-align: left;
+	border-top: 0.07em solid black;
+	display: block;
+	margin: 0;
+	padding: 0.5em 0;
+
+}
+.lfm-track:last-child {
+	border-bottom: 0.07em solid black;
+}
+.lfm-title {
+	padding-right: 1em;
+}
+.lfm-time {
+	float: right;
 }
