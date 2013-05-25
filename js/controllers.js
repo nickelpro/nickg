@@ -11,6 +11,7 @@ function LastFmCtrl($scope, $http, $timeout) {
 				} else {
 					track.time = 'Now Playing';
 				}
+				track.artist_url = track.url.substring(0, track.url.lastIndexOf('/')-2);
 			}
 			$scope.tracks = data.recenttracks.track;
 			$timeout(tick, 5000);

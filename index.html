@@ -25,10 +25,14 @@
 			</p>
 		</section>
 		<section ng-controller="LastFmCtrl" id="recently-played">
+			<header>What I'm Listening To</header>
 			<ul>
 				<li ng-repeat="track in tracks" class="lfm-track">
 					<span class="lfm-time">{{track.time}}</span>
-					<span class="lfm-title">{{track.artist['#text']}} – {{track.name}}</span>
+					<span class="lfm-title">
+						<a href={{track.artist_url}} target="_blank">{{track.artist['#text']}}</a> – 
+						<a href={{track.url}} target="_blank">{{track.name}}</a>
+					</span>
 				</li>
 			</ul>
 		</section>
