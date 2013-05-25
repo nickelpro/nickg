@@ -1,10 +1,12 @@
-<!DOCTYPE html>
+<!doctype html>
 
-<html>
+<html ng-app>
 	<head>
 		<meta charset="utf-8">
 		<title>NickG</title>
 		<link href="css/main.css" rel="stylesheet">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+		<script src="js/controllers.js"></script>
 	</head>
 	<body>
 		<div id="header">
@@ -13,6 +15,11 @@
 				<li><span class="nav-button" id="nav-code">Code</span></li>
 				<li><span class="nav-button" id="nav-about">About</span></li>
 				<li><span class="nav-button" id="nav-contact">Contact</span></li>
+			</ul>
+		</div>
+		<div ng-controller="LastFmCtrl" id="recently-played">
+			<ul>
+				<li ng-repeat="track in tracks">{{track.name}}</li>
 			</ul>
 		</div>
 	</body>

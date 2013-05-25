@@ -20,7 +20,7 @@ body {
 	cursor: pointer;
 	text-decoration: underline;
 }
-li {
+#nav>li {
 	display: inline;
 	padding: 0.75em;
 }
