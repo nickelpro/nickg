@@ -13,6 +13,7 @@ body {
 	padding: 1em;
 }
 nav {
+	min-width: 400px;
 	margin: 0;
 	padding: 0;
 }
