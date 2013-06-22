@@ -14,10 +14,10 @@ function LastFmCtrl($scope, $http, $timeout) {
 				track.artist_url = track.url.substring(0, track.url.lastIndexOf('/')-2);
 			}
 			$scope.tracks = data.recenttracks.track;
-			$timeout(tick, 5000);
+			$timeout(tick, 60000);
 		}).
 		error(function(data, status, headers, config) {
-			$timeout(tick, 5000);
+			$timeout(tick, 60000);
 		});
 	}();
 };
