@@ -35,27 +35,40 @@ nav>li {
 	margin-right: auto;
 }
 #main {
-	width: 640px;
+	cursor:default;
+	margin-top: 1em;
+	width: 600px;
 	float: left;
+}
+#main>ul {
+	list-style-position: outside;
+	padding: 0;
+	margin: 0;
+}
+.article-entry {
+	font-family: Arial,​ sans-serif;
+	border-top: 0.1em solid black;
+	display: block;
+	padding: 0.5em;
+
+}
+.article-entry a {
+	color: #000;
+	text-decoration: none;
+}
+.article-entry a:hover {
+	cursor: pointer;
+	text-decoration: underline;
+}
+.article-time {
+	float: right;
 }
 #recently-played {
 	cursor:default;
 	width: 320px;
 	margin-top: 1em;
+	margin-left: 40px;
 	float: left;
-}
-@media all and (max-width: 955px) { 
-/*955px to account for browser scroll or border*/
-	#container {
-		width: 90%;
-		min-width: 400px
-	}
-	#main {
-		width: 100%;
-	}
-	#recently-played {
-		display: none;
-	}
 }
 #recently-played>ul {
 	list-style-position: outside;
@@ -86,4 +99,17 @@ nav>li {
 }
 .lfm-time {
 	float: right;
+}
+@media all and (max-width: 955px) { 
+/*955px to account for browser scroll or border*/
+	#container {
+		width: 90%;
+		min-width: 400px
+	}
+	#main {
+		width: 100%;
+	}
+	#recently-played {
+		display: none;
+	}
 }

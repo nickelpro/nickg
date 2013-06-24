@@ -13,17 +13,23 @@
 		<header id="nav-header">
 			<nav>
 				<li><span class="nav-button" id="nav-home">Home</span></li>
-				<li><span class="nav-button" id="nav-blog">Blag</span></li>
+				<li><a class="nav-button" href="http://blog.nickg.org">Blag</a></li>
 				<li><a class="nav-button" href="https://github.com/nickelpro">Code</a></li>
 				<li><span class="nav-button" id="nav-about">About</span></li>
 				<li><span class="nav-button" id="nav-contact">Contact</span></li>
-			<nav>
+			</nav>
 		</header>
 		<div id="container">
-			<section id="main">
-				<p>
-					Shit goes here
-				</p>
+			<section ng-controller="BlogFeedCtrl" id="main">
+				<header>What I'm Writing About</header>
+				<ul>
+					<li ng-repeat="article in articles" class="article-entry">
+						<span class="article-time">{{article.time}}</span>
+						<span class="article-title">
+							<a href={{article.link}}>{{article.title}}</a>
+						</span>
+					</li>
+				</ul>
 			</section>
 			<section ng-controller="LastFmCtrl" id="recently-played">
 				<header>What I'm Listening To</header>
@@ -31,8 +37,8 @@
 					<li ng-repeat="track in tracks" class="lfm-track">
 						<span class="lfm-time">{{track.time}}</span>
 						<span class="lfm-title">
-							<a href={{track.artist_url}} target="_blank">{{track.artist[	'#text']}}</a> – 
-						<a href={{track.url}} target="_blank">{{track.name}}</a>
+							<a href={{track.artist_url}}>{{track.artist['#text']}}</a> – 
+						<a href={{track.url}}>{{track.name}}</a>
 						</span>
 					</li>
 				</ul>

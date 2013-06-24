@@ -1,9 +1,7 @@
 function LastFmCtrl($scope, $http, $timeout) {
-	$scope.tracks = [];
 	!function tick() {
 		$http({method: 'GET', url: 'http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=nickelpro&api_key=ffd9e00b1647c0824ce7cb0a0aa44ce1&format=json'}).
 		success(function(data, status, headers, config) {
-			$scope.tracks = [];
 			for(var i=0;i<data.recenttracks.track.length;i++) {
 				var track = data.recenttracks.track[i];
 				if (typeof track.date != 'undefined') {
@@ -18,6 +16,19 @@ function LastFmCtrl($scope, $http, $timeout) {
 		}).
 		error(function(data, status, headers, config) {
 			$timeout(tick, 60000);
+		});
+	}();
+};
+
+function BlogFeedCtrl($scope, $http) {
+	!function() {
+		$http({method: 'JSONP', url: 'https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&q=http://blog.nickg.org/atom.xml&callback=JSON_CALLBACK'}).
+		success(function(data, status, headers, config) {
+			for(var i=0;i<data.responseData.feed.entries.length;i++) {
+				var article = data.responseData.feed.entries[i];
+				article.time = moment(article.publishedDate).format('LL');
+			}
+			$scope.articles = data.responseData.feed.entries;
 		});
 	}();
 };
