@@ -8,14 +8,10 @@ body {
 #nav-header {
 	cursor:default;
 	text-align: center;
+	min-width: 400px;
 	background-color: #eaeaea;
 	opacity: 0.6;
-	padding: 1em;
-}
-nav {
-	min-width: 400px;
-	margin: 0;
-	padding: 0;
+	padding: 0.75em;
 }
 .nav-button {
 	color: #000;
@@ -25,7 +21,11 @@ nav {
 	cursor: pointer;
 	text-decoration: underline;
 }
-nav>li {
+nav>ul {
+	padding: 0;
+	margin: 0;
+}
+nav>ul>li {
 	display: inline;
 	padding: 0.75em;
 }
