@@ -100,6 +100,20 @@ nav>ul>li {
 .lfm-time {
 	float: right;
 }
+#about {
+	margin-top: 1em;
+}
+#about>img {
+	float: left;
+	margin-right: 16px;
+}
+#about>p {
+	float: left;
+	width: 710px;
+	padding: 16px;
+	border: 1px solid black;
+	margin-top: 0;
+} 
 @media all and (max-width: 955px) { 
 /*955px to account for browser scroll or border*/
 	#container {
