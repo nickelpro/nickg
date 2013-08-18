@@ -45,6 +45,14 @@
 					</li>
 				</ul>
 			</section>
+			<section ng-controller="GithubRepoCtrl" id="github-repos"> 
+				<header>What I'm Hacking On</header>
+					<ul>
+					<li ng-repeat="repo in repos" class="github-repo">
+						{{repo.name}}
+					</li>
+				</ul>
+			</section>
 		</div>
 	</body>
 </html>

@@ -32,3 +32,15 @@ function BlogFeedCtrl($scope, $http) {
 		});
 	}();
 };
+
+function GithubRepoCtrl($scope, $http) {
+	!function() {
+		$http({method: 'GET', url: 'https://api.github.com/users/nickelpro/repos?sort=pushed'}).
+		success(function(data, status, headers, config) {
+			$scope.repos = [];
+			for(var i=0;(i<data.length && i<5);i++) {
+				$scope.repos[i] = data[i];
+			}
+		});
+	}();
+};
