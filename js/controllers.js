@@ -40,7 +40,7 @@ function GithubRepoCtrl($scope, $http) {
 		success(function(data, status, headers, config) {
 			$scope.repos = [];
 			for(var i=0;(i<data.length && i<5);i++) {
-				data[i].time = moment(data[i].updated_at).format('LL');
+				data[i].time = moment(data[i].updated_at).fromNow();
 				if (data[i].language == null) {
 					data[i].language = 'Unknown';
 				}
