@@ -13,11 +13,11 @@
 		<header id="nav-header">
 			<nav>
 				<ul>
-					<li><a class="nav-button" href="">Home</a></li>
-					<li><a class="nav-button" href="http://blog.nickg.org">Blag</a></li>
-					<li><a class="nav-button" href="https://github.com/nickelpro">Code</a></li>
-					<li><a class="nav-button" href="about.html">About</a></li>
-					<li><a class="nav-button" href="mailto:nickelpro@gmail.com">Contact</a></li>
+					<li><a class="link-button" href="/">Home</a></li>
+					<li><a class="link-button" href="http://blog.nickg.org">Blag</a></li>
+					<li><a class="link-button" href="https://github.com/nickelpro">Code</a></li>
+					<li><a class="link-button" href="about.html">About</a></li>
+					<li><a class="link-button" href="mailto:nickelpro@gmail.com">Contact</a></li>
 				</ul>
 			</nav>
 		</header>
@@ -28,7 +28,7 @@
 					<li ng-repeat="article in articles" class="article-entry">
 						<span class="article-time">{{article.time}}</span>
 						<span class="article-title">
-							<a href={{article.link}}>{{article.title}}</a>
+							<a class="link-button" href={{article.link}}>{{article.title}}</a>
 						</span>
 					</li>
 				</ul>
@@ -39,17 +39,19 @@
 					<li ng-repeat="track in tracks" class="lfm-track">
 						<span class="lfm-time">{{track.time}}</span>
 						<span class="lfm-title">
-							<a href={{track.artist_url}}>{{track.artist['#text']}}</a> – 
-						<a href={{track.url}}>{{track.name}}</a>
+							<a class="link-button" href={{track.artist_url}}>{{track.artist['#text']}}</a> – 
+						<a class="link-button" href={{track.url}}>{{track.name}}</a>
 						</span>
 					</li>
 				</ul>
 			</section>
 			<section ng-controller="GithubRepoCtrl" id="github-repos"> 
 				<header>What I'm Hacking On</header>
-					<ul>
+				<ul>
 					<li ng-repeat="repo in repos" class="github-repo">
-						{{repo.name}}
+						<a class="link-button" href={{repo.html_url}}>{{repo.name}}</a>
+						<p class="repo-info">{{repo.language}}</p>
+						<p class="repo-info">{{repo.time}}</p>
 					</li>
 				</ul>
 			</section>

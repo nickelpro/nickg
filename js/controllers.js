@@ -24,11 +24,12 @@ function BlogFeedCtrl($scope, $http) {
 	!function() {
 		$http({method: 'JSONP', url: 'https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&q=http://blog.nickg.org/atom.xml&callback=JSON_CALLBACK'}).
 		success(function(data, status, headers, config) {
-			for(var i=0;i<data.responseData.feed.entries.length;i++) {
+			$scope.articles = [];
+			for(var i=0;(i<data.responseData.feed.entries.length && i<8);i++) {
 				var article = data.responseData.feed.entries[i];
 				article.time = moment(article.publishedDate).format('LL');
+				$scope.articles[i] = article;
 			}
-			$scope.articles = data.responseData.feed.entries;
 		});
 	}();
 };
@@ -39,6 +40,10 @@ function GithubRepoCtrl($scope, $http) {
 		success(function(data, status, headers, config) {
 			$scope.repos = [];
 			for(var i=0;(i<data.length && i<5);i++) {
+				data[i].time = moment(data[i].updated_at).format('LL');
+				if (data[i].language == null) {
+					data[i].language = 'Unknown';
+				}
 				$scope.repos[i] = data[i];
 			}
 		});
